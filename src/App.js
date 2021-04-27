@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Input from './components/Input'
 import './App.css';
+import DisplayForm from './components/DisplayForm'
 
 function App() {
+  const [skill, setSkill] = useState("");
+  const [skillList, setSkillList] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+     <Input skill={skill} setSkill={setSkill} skillList={skillList} setSkillList={setSkillList} />
+     <DisplayForm skillList={skillList} />
+      <Footer/>
+
     </div>
   );
 }
